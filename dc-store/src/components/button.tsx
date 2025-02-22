@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { motion } from "framer-motion";
 
 export interface ButtonProps
   extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>> {
@@ -8,24 +9,32 @@ export interface ButtonProps
 }
 
 export default function Button({
-  className,
+  className = "",
   primary,
   small,
   large,
+  children,
   ...props
 }: ButtonProps) {
   return (
-    <button
+    //@ts-ignore
+    <motion.button
+      type="button"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.2 }}
       className={`${
         primary ? "bg-primary text-white" : "bg-secondary"
       } text-base font-medium rounded-lg ${
         large
-          ? "px-6 py-3.5"
+          ? "px-4 py-3"
           : small
           ? "px-[10px] py-[4px] rounded-md text-sm"
-          : "px-6 py-2.5"
-      } disabled:opacity-50 ${className ?? ""}`}
+          : "px-4 py-2.5"
+      } disabled:opacity-50 ${className}`}
       {...props}
-    />
+    >
+      {children}
+    </motion.button>
   );
 }

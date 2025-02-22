@@ -3,6 +3,7 @@ import trash from "@/static/trash.svg";
 import { useSetRecoilState } from "recoil";
 import { cartState } from "@/state";
 import Button from "@/components/button";
+import { motion } from "framer-motion";
 
 type Props = {
   item: CartItem;
@@ -64,9 +65,14 @@ const CartItem = memo(({ item }: Props) => {
           </div>
         </div>
       </div>
-      <button className="text-red-500" onClick={removeItem}>
+      <motion.button
+        onClick={removeItem}
+        whileHover={{ scale: 1.1 }}
+        className="rounded-xl text-sm font-medium text-white"
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+      >
         <img src={trash} alt="cart" className="w-5 h-5" />
-      </button>
+      </motion.button>
     </div>
   );
 });

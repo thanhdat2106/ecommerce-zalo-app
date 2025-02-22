@@ -39,10 +39,10 @@ const ProductDetail = () => {
 
   return (
     <motion.div
-      className="relative bg-gray-100 rounded-lg shadow-lg h-full min-h-[650px]"
+      className="relative bg-gray-100 rounded-lg shadow-lg h-full max-h-full min-h-[650px]"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
     >
       <motion.div
         className="relative bg-white"

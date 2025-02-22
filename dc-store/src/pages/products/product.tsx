@@ -15,16 +15,16 @@ const Product = memo((props: Props) => {
     <motion.div
       className="relative bg-white rounded-2xl p-4 border mb-2 shadow-md"
       key={product.id}
-      initial={{ opacity: 0, y: 10 }} // Bắt đầu từ dưới
+      initial={{ opacity: 0, y: 0 }} // Bắt đầu từ dưới
       whileInView={{ opacity: 1, y: 0 }} // Khi cuộn vào viewport
-      viewport={{ once: true, amount: 0.2 }} // Kích hoạt một lần khi hiển thị 20%
+      viewport={{ once: true, amount: 0.1 }} // Kích hoạt một lần khi hiển thị 20%
       transition={{ duration: 0.5, ease: "easeOut" }} // Hiệu ứng mượt hơn
     >
       <div onClick={() => navigate(`/product-detail/${product.id}/false`)}>
         <div className="relative">
           <img
             alt={product.title}
-            className="w-full rounded-lg"
+            className="w-full rounded-lg h-[400px]"
             height="400"
             src={product.image}
             width="600"
